@@ -26,7 +26,7 @@ public class Student implements Comparable<Student>{
 //        return this.age - o2.age;
 //    }
     /*  If namewise we want to sorting.
-    *
+    *    Then you have to use compareTo method.
      */
     @Override
     public int compareTo(Student o3) {
