@@ -31,11 +31,11 @@ public class TraverseScenario {
         }
 
         // Now we will do backward traversing.
-//        ListIterator<String> listIterator = names.listIterator(names.size());
-//        while(listIterator.hasPrevious()) {
-//           String s =  listIterator.next();
-//            System.out.println("ListIterator/backward tarversing :"+s);
-//        }
+        ListIterator<String> listIterator = names.listIterator(names.size());
+        while(listIterator.hasPrevious()) {
+           String s =  listIterator.previous();
+            System.out.println("ListIterator/backward tarversing :"+s);
+        }
 
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 
