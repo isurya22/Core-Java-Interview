@@ -4,10 +4,11 @@ public class TestImmutable {
     public static void main(String[] args) {
         String s = "Java";
         s.concat(" Force"); // concat() is used to append at the end.
-        System.out.println(s);
+        System.out.println(s); // return only Java
 
         String password = "pwd";
         password.concat("123");
+        System.out.println(password); //Return only pwd
     }
 
 }
