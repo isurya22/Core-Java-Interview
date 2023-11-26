@@ -9,5 +9,6 @@ public class DePersist {
         Student student = (Student)objectInputStream.readObject();
         System.out.println(student.id+" "+student.name+" "+student.age);
         objectInputStream.close();
+        System.out.println("Success");
     }
 }
