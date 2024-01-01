@@ -6,5 +6,7 @@ public class User {
         phonePay.addCoupon();
         Paytm paytm = new Paytm();
         paytm.doTransaction();
+        //We can call static method by interface.
+        Payment.generateTransactionReport();
     }
 }
