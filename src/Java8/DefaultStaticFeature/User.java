@@ -1,4 +1,8 @@
-package Java8;
+package Java8.DefaultStaticFeature;
+
+import Java8.DefaultStaticFeature.Payment;
+import Java8.DefaultStaticFeature.Paytm;
+import Java8.DefaultStaticFeature.PhonePay;
 
 public class User {
     public static void main(String[] args) {
