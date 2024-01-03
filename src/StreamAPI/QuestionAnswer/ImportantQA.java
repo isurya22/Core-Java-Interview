@@ -1,6 +1,7 @@
 package StreamAPI.QuestionAnswer;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,6 +24,11 @@ public class ImportantQA {
         // 1. Find the list of students whose rank is in between 50 and 100
         List<Student> students = studentList.stream().filter(a->a.getRank() > 50 && a.getRank() < 100).collect(Collectors.toList());
         System.out.println("rank is in between 50 and 100 are : "+students);
+
+        //2. Find the Students who stays in Karnataka and sort them by their names.
+         List<Student> studentsByCity = studentList.stream().filter(student->student.getCity().equals("Karnataka"))
+                .sorted(Comparator.comparing(Student::getFirstName)).collect(Collectors.toList());
+        System.out.println("Students stay in karnataka & sort by their names : "+studentsByCity);
 
     }
 }
