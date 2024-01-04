@@ -3,6 +3,7 @@ package StreamAPI.QuestionAnswer;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,12 +24,23 @@ public class ImportantQA {
 
         // 1. Find the list of students whose rank is in between 50 and 100
         List<Student> students = studentList.stream().filter(a->a.getRank() > 50 && a.getRank() < 100).collect(Collectors.toList());
-        System.out.println("rank is in between 50 and 100 are : "+students);
+        //System.out.println("rank is in between 50 and 100 are : "+students);
 
         //2. Find the Students who stays in Karnataka and sort them by their names.
          List<Student> studentsByCity = studentList.stream().filter(student->student.getCity().equals("Karnataka"))
                 .sorted(Comparator.comparing(Student::getFirstName)).collect(Collectors.toList());
-        System.out.println("Students stay in karnataka & sort by their names : "+studentsByCity);
+        //System.out.println("Students stay in karnataka & sort by their names : "+studentsByCity);
+
+        // 3. Find all departments names
+        List<String>  deptName = studentList.stream().map(Student::getDept).collect(Collectors.toList());
+        //System.out.println("All department names are : "+deptName);
+
+        //suppose we want not repeated branch then we can do 2 ways. That is using distinct() and toSet().
+        List<String> deptName1 = studentList.stream().map(Student::getDept).distinct().collect(Collectors.toList());
+        //System.out.println(deptName1);
+
+        Set<String> deptName2 = studentList.stream().map(Student::getDept).collect(Collectors.toSet());
+        System.out.println(deptName2);
 
     }
 }
