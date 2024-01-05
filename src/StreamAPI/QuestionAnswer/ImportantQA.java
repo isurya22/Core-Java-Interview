@@ -40,7 +40,14 @@ public class ImportantQA {
         //System.out.println(deptName1);
 
         Set<String> deptName2 = studentList.stream().map(Student::getDept).collect(Collectors.toSet());
-        System.out.println(deptName2);
+        //System.out.println(deptName2);
+
+        //4.  Find all the contact numbers
+        List<String> contList  = studentList.stream().flatMap(student->student.getContacts().stream()).collect(Collectors.toList());
+        System.out.println(contList);
+
+        //one2one = map means if single attribute to get specific data.
+        //one2Many = flatmap
 
     }
 }
