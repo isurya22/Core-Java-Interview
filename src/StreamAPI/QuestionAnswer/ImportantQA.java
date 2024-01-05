@@ -1,9 +1,6 @@
 package StreamAPI.QuestionAnswer;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -44,10 +41,16 @@ public class ImportantQA {
 
         //4.  Find all the contact numbers
         List<String> contList  = studentList.stream().flatMap(student->student.getContacts().stream()).collect(Collectors.toList());
-        System.out.println(contList);
+        //System.out.println(contList);
 
         //one2one = map means if single attribute to get specific data.
         //one2Many = flatmap
+
+        //5.  Group The Student By Department Names
+        Map<String,List<Student>> studentMap = studentList.stream().collect(Collectors.groupingBy(Student::getDept));
+        System.out.println(studentMap);
+
+
 
     }
 }
