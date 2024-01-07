@@ -48,7 +48,11 @@ public class ImportantQA {
 
         //5.  Group The Student By Department Names
         Map<String,List<Student>> studentMap = studentList.stream().collect(Collectors.groupingBy(Student::getDept));
-        System.out.println(studentMap);
+        //System.out.println(studentMap);
+
+        //6. Find the department and calculate number of students
+        Map<String, Long> studentMapCount =  studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.counting()));
+        System.out.println(studentMapCount);
 
 
 
