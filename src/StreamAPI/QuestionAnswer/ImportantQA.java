@@ -52,7 +52,11 @@ public class ImportantQA {
 
         //6. Find the department and calculate number of students
         Map<String, Long> studentMapCount =  studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.counting()));
-        System.out.println(studentMapCount);
+        //System.out.println(studentMapCount);
+
+        //7. Find the maximum number of students with department name
+        Map.Entry<String,Long> maxStudentAtDept = studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        System.out.println(maxStudentAtDept);
 
 
 
