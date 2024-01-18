@@ -54,9 +54,13 @@ public class ImportantQA {
         Map<String, Long> studentMapCount =  studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.counting()));
         //System.out.println(studentMapCount);
 
-        //7. Find the maximum number of students with department name
+        //7. Find the maximum number of students in department
         Map.Entry<String,Long> maxStudentAtDept = studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get();
-        System.out.println(maxStudentAtDept);
+        //System.out.println(maxStudentAtDept);
+
+        //8. Find the average age of male and female students
+        Map<String, Double> averageMaleAndFemale = studentList.stream().collect(Collectors.groupingBy(Student::getGender,Collectors.averagingInt(Student::getAge)));
+        System.out.println(averageMaleAndFemale);
 
 
 
