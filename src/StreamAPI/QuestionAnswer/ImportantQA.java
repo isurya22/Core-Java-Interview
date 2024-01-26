@@ -60,9 +60,15 @@ public class ImportantQA {
 
         //8. Find the average age of male and female students
         Map<String, Double> averageMaleAndFemale = studentList.stream().collect(Collectors.groupingBy(Student::getGender,Collectors.averagingInt(Student::getAge)));
-        System.out.println(averageMaleAndFemale);
+        //System.out.println(averageMaleAndFemale);
 
+        //9. Find the highest rank in each department
+        Map<String, List<Student>> studentsMap = studentList.stream().collect(Collectors.groupingBy(Student::getDept));
+        //System.out.println(studentsMap);
 
+        //10. Find the Lowest Rank in department
+        Map<String, Optional<Student>> studentLowestRank = studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.minBy(Comparator.comparing(Student::getRank))));
+        System.out.println(studentLowestRank);
 
     }
 }

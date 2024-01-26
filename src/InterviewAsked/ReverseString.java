@@ -2,7 +2,7 @@ package InterviewAsked;
 
 public class ReverseString {
     public static void main(String[] args) {
-        String word = "Surya";
+        String word = "BALL";
 
         ReverseString.reverseProcess(word);
     }
