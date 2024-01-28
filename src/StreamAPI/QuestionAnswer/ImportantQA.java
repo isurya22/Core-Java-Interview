@@ -68,7 +68,14 @@ public class ImportantQA {
 
         //10. Find the Lowest Rank in department
         Map<String, Optional<Student>> studentLowestRank = studentList.stream().collect(Collectors.groupingBy(Student::getDept,Collectors.minBy(Comparator.comparing(Student::getRank))));
-        System.out.println(studentLowestRank);
+        //System.out.println(studentLowestRank);
+
+        //11. Find the student who has second rank
+        Student studentRankwise = studentList.stream()
+                .sorted(Comparator.comparing(Student::getRank))
+                .skip(1)
+                        .findFirst().get();
+        System.out.println(studentRankwise);
 
     }
 }
